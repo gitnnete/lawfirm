@@ -1,13 +1,452 @@
+/* Importing the Forum font */
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap&font-display=swap');
+
+/* Apply the font to the body */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: 'Forum', sans-serif; /* Set the font for the entire website */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*NAVBAR*/
+.nav-link {
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: red;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+  
+  /* Dropdown items hover */
+  .dropdown-item:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+  }
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  /*HERO*/
+  .hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Ensure the image fully covers the section, even on smaller screens */
+  .hero-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Ensure the image doesn't overflow */
+  }
+  
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+    transition: transform 2s ease-out;
+    transform: scale(1); /* Default size */
+  }
+  
+  /* Zoom-in effect */
+  .hero-image-container .hero-image {
+    transform: scale(1.1); /* Slightly zoom the image */
+  }
+  
+  /* Hero text styling */
+  .hero-text {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Add shadow to text for readability */
+  }
+  
+  .hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  
+  .redtext {
+    color: red;
+  }
+
+  .hero-para {
+    font-size: 1.5;
+  }
+
+
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero-text h1 {
+      font-size: 2rem; /* Scale down heading */
+    }
+  
+    .hero-text p {
+      font-size: 1rem; /* Scale down paragraph */
+    }
+  }
+  
+  /* Further scaling for very small screens */
+  @media (max-width: 576px) {
+    .hero-text h1 {
+      font-size: 1.5rem; /* Further reduce heading */
+    }
+  
+    .hero-text p {
+      font-size: 0.9rem; /* Further reduce paragraph */
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*PROFILE*/
+  .profile-img {
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    width: 100%; /* Ensures the image remains responsive */
+  }
+  
+
+  .rounded-bottom {
+    width: 60%;
+  height: auto;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+  }
+
+  .sub-profile-heading {
+    background-color: rgb(247, 48, 48);
+    padding: 6px; /* Adjust the padding as needed */
+    display: inline-block;
+    border-radius: 8px; /* {{ edit_2 }} */
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*FOOTER*/
+  .footer-section {
+    position: relative;
+    padding: 40px 0;
+    background-color: #1a1a1a;
+  }
+
+  .footer-heading {
+    font-size: 1.9rem;
+  }
+  
+  .social-icons a {
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #00aced; /* Twitter blue, you can customize this color */
+  }
+
+  .social-icons a i {
+    color: rgb(197, 0, 0);
+  }
+  
+  .expertise-buttons .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .expertise-buttons .btn:hover {
+    color: white;
+    background-color: red;
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  
+  /* Popup Overlay */
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+  }
+  
+  /* Popup Window */
+  .popup-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    width: 80%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1001;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Popup Header */
+  .popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .popup-header h5 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .popup-header .btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .popup-header .btn-close:hover {
+    color: red;
+  }
+  
+  /* Popup Body */
+  .popup-body {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  /* Ensure the popup is responsive */
+  @media (max-width: 768px) {
+    .popup-window {
+      width: 90%;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+  /* Container for the FAQ section */
+.faq-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f8f9fa;
 }
+
+.faq-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Left div (Image) styling */
+.faq-image-container {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.faq-image {
+  max-width: 60%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Right div (FAQ buttons) styling */
+.faq-buttons-container {
+  flex-direction: column; /* Change to column layout */
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Space buttons in a row */
+}
+
+.faq-button {
+  margin: 0.5rem;
+  padding: 0.75rem;
+  background-color: #b62e2e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  max-width: 360px;
+  transition: background-color 0.3s ease;
+  flex-basis: 100%; /* Ensure buttons stack vertically */
+}
+
+.faq-button:hover {
+  background-color: transparent;
+  color: black;
+  border: 2px solid rgb(58, 57, 57); /* Specify border style and width */
+}
+
+/* Modal styling */
+.faq-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Background remains unchanged */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* New class for popup content */
+.faq-popup {
+  background-color: white; /* Change this to your desired popup color */
+  padding: 20px; /* Add padding for better appearance */
+  border-radius: 8px; /* Optional: rounded corners */
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ff0000;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .faq-container {
+    flex-direction: column;
+  }
+
+  .faq-buttons-container {
+    justify-content: center; /* Center buttons on small screens */
+  }
+
+  .faq-button {
+    flex-basis: 100%; /* Stack buttons vertically on small screens */
+  }
+
+  .faq-image-container,
+  .faq-buttons-container {
+    width: 100%;
+    padding: 1rem 0;
+  }
+}
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Contact Form*/ 

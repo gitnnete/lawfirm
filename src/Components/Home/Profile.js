@@ -31,9 +31,8 @@ const Profile = () => {
               excellence in legal practice.
             </p>
             <p className="lead mb-4">
-              Sure! Here’s an additional paragraph on the same topic: John Doe's
-              extensive legal expertise extends beyond corporate law; he has a
-              proven track record in negotiations, compliance, and risk
+              John Doe's extensive legal expertise extends beyond corporate law;
+              he has a proven track record in negotiations, compliance, and risk
               management. His analytical skills and strategic approach have
               earned him a reputation as a trusted advisor among clients and
               peers alike. John is dedicated to staying abreast of industry
